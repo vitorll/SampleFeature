@@ -90,7 +90,7 @@
 			children = (
 				4E90E8A0282B725000CF8A82 /* App */,
 				4E90E899282B6FA100CF8A82 /* Managers */,
-				4E90E890282B6E4200CF8A82 /* Feature */,
+				4E90E890282B6E4200CF8A82 /* Features */,
 				4E90E88F282B6E3A00CF8A82 /* Coordinators */,
 				4E90E89F282B722300CF8A82 /* Resources */,
 			);
@@ -115,13 +115,13 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
-		4E90E890282B6E4200CF8A82 /* Feature */ = {
+		4E90E890282B6E4200CF8A82 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				4E90E863282B6DBC00CF8A82 /* ViewController.swift */,
 				4E90E894282B6EAC00CF8A82 /* ViewModel.swift */,
 			);
-			path = Feature;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		4E90E896282B6EF700CF8A82 /* Helpers */ = {
