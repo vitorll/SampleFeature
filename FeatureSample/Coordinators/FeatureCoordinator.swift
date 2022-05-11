@@ -7,11 +7,12 @@
 
 import UIKit
 
-// Whoever calls `makeWith` will be the coordinator of this screen.
-// It needs to hold the navigation callback from the ViewModel
+/// Whoever calls `makeWith` will be the coordinator of this screen.
+/// It needs to hold the navigation callback from the ViewModel
+/// The only class to create view controllers should be a `Coordinator`!
 final class FeatureCoordinator {
-    // This class is responsible for handling the presentation and dismiss of views
-    // It'll be injected with the navigation controller currently displayed on the screen so it can present new ones
+    /// This class is responsible for handling the presentation and dismiss of views
+    /// It'll be injected with the navigation controller currently displayed on the screen so it can present new ones
     private var navigationController: UINavigationController!
     
     func start() {

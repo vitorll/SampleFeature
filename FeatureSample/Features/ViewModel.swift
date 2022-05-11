@@ -7,10 +7,6 @@
 
 import Foundation
 
-enum ViewModelFetchError: Error, Equatable {
-    case failedToLoad, timeout
-}
-
 enum FeatureViewModelState: Equatable {
     case loading
     case loaded([String])
@@ -38,7 +34,7 @@ protocol FeatureViewModelInterface {
 
 
 final class FeatureViewModel: FeatureViewModelInterface, FeatureViewModelNavigationInterface {
-    // We can update these 2 to use Combine without much hassle
+    /// We can update these 2 to use Combine without much hassle
     var viewState: ((FeatureViewModelState) -> Void)?
     var navigationCallback: ((Navigation) -> Void)?
     

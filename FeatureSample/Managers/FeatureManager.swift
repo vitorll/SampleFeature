@@ -13,7 +13,8 @@ public protocol FeatureManagerInterface {
 }
 
 final class FeatureManager: FeatureManagerInterface {
+    /// Have the HTTP client injected here so we are able to test this class functionality
     func fetchFlights(_ completion: @escaping (FeatureManagerResult)) {
-        // Fetch data from API service
+        /// Fetch data from API service
     }
 }

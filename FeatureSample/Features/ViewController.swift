@@ -7,7 +7,9 @@
 
 import UIKit
 
-// In case the ViewController is in Storyboard
+/// In case the ViewController is in Storyboard it should be created through this function
+/// It'll setup all necessary depednencies in order to make this view controller work
+/// Should *only* be called by a `Coordinator`
 extension FeatureViewController {
     static func makeWith(viewModel: FeatureViewModelInterface) -> FeatureViewController {
         let bundle = Bundle(for: FeatureViewController.self)
@@ -46,6 +48,8 @@ final class FeatureViewController: UIViewController {
 }
 
 // MARK: - View Actions
+
+/// A view controller shouldn't process anything itself, on receiving input the same should be sent to the viewmodel for processing
 private extension FeatureViewController {
     func didTapAddFlightButton() {
         viewModel.addFlight()
@@ -53,6 +57,9 @@ private extension FeatureViewController {
 }
 
 // MARK: - View State Updates
+
+/// This is what a view controller should be about, it reacts to changes on the view model to update its components
+/// Ideally no logic should be here! Only simple comands telling labels, buttons, etc how they should look like
 private extension FeatureViewController {
     func updateFlightList(_ flights: [String]) {
         // Update tableView with flight list
