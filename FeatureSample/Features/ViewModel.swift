@@ -14,7 +14,7 @@ enum ViewModelFetchError: Error, Equatable {
 enum FeatureViewModelState: Equatable {
     case loading
     case loaded([String])
-    case failed(ViewModelFetchError)
+    case failed(String)
 }
 
 extension FeatureViewModel {
@@ -56,7 +56,7 @@ final class FeatureViewModel: FeatureViewModelInterface, FeatureViewModelNavigat
             case let .success(flights):
                 self.viewState?(.loaded(flights))
             case .failure:
-                self.viewState?(.failed(.failedToLoad))
+                self.viewState?(.failed("Failed to fetch flights"))
             }
         }
     }

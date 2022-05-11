@@ -58,7 +58,7 @@ private extension FeatureViewController {
         // Update tableView with flight list
     }
     
-    func render(_ error: Error) {
+    func render(_ error: String) {
         // Present error message
     }
     

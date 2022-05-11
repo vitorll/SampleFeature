@@ -39,7 +39,7 @@ final class FeatureViewModelTests: XCTestCase {
 
         manager.compelteFailure(index: 0, error: anyNSError())
         
-        XCTAssertEqual(receivedState, .failed(.failedToLoad))
+        XCTAssertEqual(receivedState, .failed("Failed to fetch flights"))
     }
     
     func test_addFlight_triggersNavigationCallback() {
