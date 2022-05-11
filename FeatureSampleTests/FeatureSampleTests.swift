@@ -8,29 +8,56 @@
 import XCTest
 @testable import FeatureSample
 
-class FeatureSampleTests: XCTestCase {
+final class FeatureViewModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func test_load_updateStateToLoading() {
+        let (sut, manager) = makeSUT()
+        var receivedState: FeatureViewModelState!
+        sut.viewState = { receivedState = $0 }
+        sut.load()
+        
+        XCTAssertEqual(manager.receivedCompletion.count, 1)
+        XCTAssertEqual(receivedState, .loading)
+    }
+    
+    func test_load_updateStateToLoadedWhenFlightsAvailable() {
+        let (sut, manager) = makeSUT()
+        var receivedState: FeatureViewModelState!
+        sut.viewState = { receivedState = $0 }
+        sut.load()
+
+        manager.completeSuccessfully(index: 0, flights: ["Flight ABC 123"])
+                
+        XCTAssertEqual(receivedState, .loaded(["Flight ABC 123"]))
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+    func test_load_updateStateToFailedWhenAnErrorIsReceived() {
+        let (sut, manager) = makeSUT()
+        var receivedState: FeatureViewModelState!
+        sut.viewState = { receivedState = $0 }
+        sut.load()
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        manager.compelteFailure(index: 0, error: anyNSError())
+        
+        XCTAssertEqual(receivedState, .failed(.failedToLoad))
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func test_addFlight_triggersNavigationCallback() {
+        let (sut, _) = makeSUT()
+        var receivedCallback: FeatureViewModel.Navigation!
+        sut.navigationCallback = { receivedCallback = $0 }
+        sut.addFlight()
+        
+        XCTAssertEqual(receivedCallback, .checkin)
+    }
+    
+    // MARK: Helpers
+    private func makeSUT() -> (FeatureViewModel, FeatureManagerSpy) {
+        let manager = FeatureManagerSpy()
+        let sut = FeatureViewModel(manager: manager)
+        trackForMemoryLeaks(manager, file: #file, line: #line)
+        trackForMemoryLeaks(sut, file: #file, line: #line)
+        return (sut, manager)
     }
 
 }
