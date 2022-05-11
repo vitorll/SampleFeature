@@ -9,7 +9,7 @@ import UIKit
 
 // In case the ViewController is in Storyboard
 extension FeatureViewController {
-    static func makeWith(viewModel: FeatureViewModelProtocol) -> FeatureViewController {
+    static func makeWith(viewModel: FeatureViewModelInterface) -> FeatureViewController {
         let bundle = Bundle(for: FeatureViewController.self)
         let storyboard = UIStoryboard(name: "Feature", bundle: bundle)
         let feedController = storyboard.instantiateInitialViewController() as! FeatureViewController
@@ -20,17 +20,18 @@ extension FeatureViewController {
 
 final class FeatureViewController: UIViewController {
 
-    private var viewModel: FeatureViewModelProtocol!
+    private var viewModel: FeatureViewModelInterface!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.load()
     }
 
-    func set(_ model: FeatureViewModelProtocol) {
+    func set(_ model: FeatureViewModelInterface) {
         viewModel = model
         viewModel.viewState = { [weak self] state in
             // Stop loading animation
+
             switch state {
             case let .loaded(flights):
                 self?.updateFlightList(flights)

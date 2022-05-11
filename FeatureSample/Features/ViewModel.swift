@@ -23,11 +23,13 @@ extension FeatureViewModel {
     }
 }
 
-protocol FeatureViewModelNavigationProtocol {
+/// Following SRP it is better to have small specific interfaces than a single generic one
+/// Otherwise we make the implementation of said interface compulsory on non required classes
+protocol FeatureViewModelNavigationInterface {
     var navigationCallback: ((FeatureViewModel.Navigation) -> Void)? { get set }
 }
 
-protocol FeatureViewModelProtocol {
+protocol FeatureViewModelInterface {
     var viewState: ((FeatureViewModelState) -> Void)? { get set }
 
     func load()
@@ -35,7 +37,8 @@ protocol FeatureViewModelProtocol {
 }
 
 
-final class FeatureViewModel: FeatureViewModelProtocol, FeatureViewModelNavigationProtocol {
+final class FeatureViewModel: FeatureViewModelInterface, FeatureViewModelNavigationInterface {
+    // We can update these 2 to use Combine without much hassle
     var viewState: ((FeatureViewModelState) -> Void)?
     var navigationCallback: ((Navigation) -> Void)?
     
