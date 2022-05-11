@@ -80,13 +80,21 @@
 			children = (
 				4E90E85F282B6DBC00CF8A82 /* AppDelegate.swift */,
 				4E90E861282B6DBC00CF8A82 /* SceneDelegate.swift */,
+				4E90E89F282B722300CF8A82 /* Resources */,
+			);
+			path = FeatureSample;
+			sourceTree = "<group>";
+		};
 				4E90E863282B6DBC00CF8A82 /* ViewController.swift */,
+		4E90E89F282B722300CF8A82 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				4E90E865282B6DBC00CF8A82 /* Main.storyboard */,
 				4E90E868282B6DBD00CF8A82 /* Assets.xcassets */,
 				4E90E86A282B6DBD00CF8A82 /* LaunchScreen.storyboard */,
 				4E90E86D282B6DBD00CF8A82 /* Info.plist */,
 			);
-			path = FeatureSample;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4E90E875282B6DBD00CF8A82 /* FeatureSampleTests */ = {
@@ -365,7 +373,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 464Y35N6T8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FeatureSample/Info.plist;
+				INFOPLIST_FILE = FeatureSample/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -393,7 +401,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 464Y35N6T8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = FeatureSample/Info.plist;
+				INFOPLIST_FILE = FeatureSample/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
