@@ -18,7 +18,8 @@ final class FeatureCoordinator {
     func start() {
         let manager = FeatureManager()
         // Set all managers that this view model needs
-        let viewModel = FeatureViewModel(manager: manager)
+        let toggleManager = ToggleManager()
+        let viewModel = FeatureViewModel(manager: manager, toggleManager: toggleManager)
         viewModel.navigationCallback = { action in
             switch action {
             case .login: break // `makeWith` the login screen

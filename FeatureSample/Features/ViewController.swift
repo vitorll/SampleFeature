@@ -35,12 +35,14 @@ final class FeatureViewController: UIViewController {
             // Stop loading animation
 
             switch state {
+            case .loading:
+                break // Show spinner animation, etc
             case let .loaded(flights):
                 self?.updateFlightList(flights)
             case let .failed(error):
                 self?.render(error)
-            case .loading:
-                break // Show spinner animation, etc
+            case .redeemPoints:
+                self?.showRedeemPoints()
             }
         }
     }
@@ -71,5 +73,9 @@ private extension FeatureViewController {
     
     func showAddFlightDetail() {
         // Present success message
+    }
+    
+    func showRedeemPoints() {
+        /// New feature can be safely called here in case it is a component/widget of this view controller
     }
 }

@@ -19,6 +19,8 @@
 		4E90E898282B6F0A00CF8A82 /* FeatureSample+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E897282B6F0A00CF8A82 /* FeatureSample+Helpers.swift */; };
 		4E90E89B282B6FAA00CF8A82 /* FeatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E89A282B6FAA00CF8A82 /* FeatureManager.swift */; };
 		4E90E89E282B719500CF8A82 /* FeatureManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E89D282B719500CF8A82 /* FeatureManagerSpy.swift */; };
+		4EACA3AB282B7A4800DD8E9B /* ToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACA3AA282B7A4800DD8E9B /* ToggleManager.swift */; };
+		4EACA3AD282B7ED800DD8E9B /* ToggleManagerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACA3AC282B7ED800DD8E9B /* ToggleManagerSpy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		4E90E897282B6F0A00CF8A82 /* FeatureSample+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeatureSample+Helpers.swift"; sourceTree = "<group>"; };
 		4E90E89A282B6FAA00CF8A82 /* FeatureManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureManager.swift; sourceTree = "<group>"; };
 		4E90E89D282B719500CF8A82 /* FeatureManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureManagerSpy.swift; sourceTree = "<group>"; };
+		4EACA3AA282B7A4800DD8E9B /* ToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleManager.swift; sourceTree = "<group>"; };
+		4EACA3AC282B7ED800DD8E9B /* ToggleManagerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleManagerSpy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				4E90E89A282B6FAA00CF8A82 /* FeatureManager.swift */,
+				4EACA3AA282B7A4800DD8E9B /* ToggleManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				4E90E89D282B719500CF8A82 /* FeatureManagerSpy.swift */,
+				4EACA3AC282B7ED800DD8E9B /* ToggleManagerSpy.swift */,
 			);
 			path = Spy;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 				4E90E864282B6DBC00CF8A82 /* ViewController.swift in Sources */,
 				4E90E860282B6DBC00CF8A82 /* AppDelegate.swift in Sources */,
 				4E90E862282B6DBC00CF8A82 /* SceneDelegate.swift in Sources */,
+				4EACA3AB282B7A4800DD8E9B /* ToggleManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +291,7 @@
 			files = (
 				4E90E89E282B719500CF8A82 /* FeatureManagerSpy.swift in Sources */,
 				4E90E898282B6F0A00CF8A82 /* FeatureSample+Helpers.swift in Sources */,
+				4EACA3AD282B7ED800DD8E9B /* ToggleManagerSpy.swift in Sources */,
 				4E90E877282B6DBD00CF8A82 /* FeatureSampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

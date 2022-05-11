@@ -11,7 +11,7 @@ import XCTest
 final class FeatureViewModelTests: XCTestCase {
 
     func test_load_updateStateToLoading() {
-        let (sut, manager) = makeSUT()
+        let (sut, manager, _) = makeSUT()
         var receivedState: FeatureViewModelState!
         sut.viewState = { receivedState = $0 }
         sut.load()
@@ -21,7 +21,7 @@ final class FeatureViewModelTests: XCTestCase {
     }
     
     func test_load_updateStateToLoadedWhenFlightsAvailable() {
-        let (sut, manager) = makeSUT()
+        let (sut, manager, _) = makeSUT()
         var receivedState: FeatureViewModelState!
         sut.viewState = { receivedState = $0 }
         sut.load()
@@ -32,7 +32,7 @@ final class FeatureViewModelTests: XCTestCase {
     }
 
     func test_load_updateStateToFailedWhenAnErrorIsReceived() {
-        let (sut, manager) = makeSUT()
+        let (sut, manager, _) = makeSUT()
         var receivedState: FeatureViewModelState!
         sut.viewState = { receivedState = $0 }
         sut.load()
@@ -43,7 +43,7 @@ final class FeatureViewModelTests: XCTestCase {
     }
     
     func test_addFlight_triggersNavigationCallback() {
-        let (sut, _) = makeSUT()
+        let (sut, _, _) = makeSUT()
         var receivedCallback: FeatureViewModel.Navigation!
         sut.navigationCallback = { receivedCallback = $0 }
         sut.addFlight()
@@ -51,13 +51,33 @@ final class FeatureViewModelTests: XCTestCase {
         XCTAssertEqual(receivedCallback, .checkin)
     }
     
+    func test_load_checkFeatureToggleReturnsCorrectFeature() {
+        let (sut, _, toggleManager) = makeSUT()
+        
+        sut.load()
+        
+        XCTAssertTrue(toggleManager.receivedToggle == .redeemPoints)
+    }
+
+    func test_load_updateStateAccordingToToggle() {
+        let (sut, _, toggleManager) = makeSUT()
+        toggleManager.toggle()
+        var receivedState: FeatureViewModelState!
+        sut.viewState = { receivedState = $0 }
+
+        sut.load()
+        
+        XCTAssertEqual(receivedState, .redeemPoints)
+    }
+
     // MARK: Helpers
-    private func makeSUT() -> (FeatureViewModel, FeatureManagerSpy) {
+    private func makeSUT() -> (FeatureViewModel, FeatureManagerSpy, ToggleManagerSpy) {
         let manager = FeatureManagerSpy()
-        let sut = FeatureViewModel(manager: manager)
+        let toggleManager = ToggleManagerSpy()
+        let sut = FeatureViewModel(manager: manager, toggleManager: toggleManager)
         trackForMemoryLeaks(manager, file: #file, line: #line)
         trackForMemoryLeaks(sut, file: #file, line: #line)
-        return (sut, manager)
+        return (sut, manager, toggleManager)
     }
 
 }

@@ -11,6 +11,7 @@ enum FeatureViewModelState: Equatable {
     case loading
     case loaded([String])
     case failed(String)
+    case redeemPoints
 }
 
 extension FeatureViewModel {
@@ -39,13 +40,33 @@ final class FeatureViewModel: FeatureViewModelInterface, FeatureViewModelNavigat
     var navigationCallback: ((Navigation) -> Void)?
     
     private var manager: FeatureManagerInterface
+    private var toggleManager: ToggleManagerInterface
     
-    init(manager: FeatureManagerInterface) {
+    init(manager: FeatureManagerInterface, toggleManager: ToggleManagerInterface) {
         self.manager = manager
+        self.toggleManager = toggleManager
     }
     
     func load() {
+        if toggleManager.isOn(.redeemPoints) {
+            /// In case this feature calls a new view controller we should trigger the navigation callabck
+            /// so the Coordiantor will be able to present the view controller
+            viewState?(.redeemPoints)
+        } else {
+            fetchFlights()
+        }
+    }
+    
+    func addFlight() {
+        navigationCallback?(.checkin)
+    }
+}
+
+private extension FeatureViewModel {
+    
+    func fetchFlights() {
         viewState?(.loading)
+
         manager.fetchFlights { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -56,8 +77,5 @@ final class FeatureViewModel: FeatureViewModelInterface, FeatureViewModelNavigat
             }
         }
     }
-    
-    func addFlight() {
-        navigationCallback?(.checkin)
-    }
+
 }
