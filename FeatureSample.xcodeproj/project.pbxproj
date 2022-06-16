@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E136323285AF20600EA168C /* FeatureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E136322285AF20600EA168C /* FeatureService.swift */; };
+		4E136326285AF21E00EA168C /* FeatureDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E136325285AF21E00EA168C /* FeatureDataSource.swift */; };
+		4E13632B285AF29600EA168C /* FeatureAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13632A285AF29600EA168C /* FeatureAPIModel.swift */; };
+		4E13632D285AF35F00EA168C /* FeatureDomainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13632C285AF35F00EA168C /* FeatureDomainModel.swift */; };
+		4E13632F285AF6F400EA168C /* FeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E13632E285AF6F400EA168C /* FeatureModel.swift */; };
 		4E90E860282B6DBC00CF8A82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E85F282B6DBC00CF8A82 /* AppDelegate.swift */; };
 		4E90E862282B6DBC00CF8A82 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E861282B6DBC00CF8A82 /* SceneDelegate.swift */; };
 		4E90E864282B6DBC00CF8A82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E90E863282B6DBC00CF8A82 /* ViewController.swift */; };
@@ -34,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E136322285AF20600EA168C /* FeatureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureService.swift; sourceTree = "<group>"; };
+		4E136325285AF21E00EA168C /* FeatureDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDataSource.swift; sourceTree = "<group>"; };
+		4E13632A285AF29600EA168C /* FeatureAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureAPIModel.swift; sourceTree = "<group>"; };
+		4E13632C285AF35F00EA168C /* FeatureDomainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureDomainModel.swift; sourceTree = "<group>"; };
+		4E13632E285AF6F400EA168C /* FeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureModel.swift; sourceTree = "<group>"; };
 		4E90E85C282B6DBC00CF8A82 /* FeatureSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeatureSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E90E85F282B6DBC00CF8A82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E90E861282B6DBC00CF8A82 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +81,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E13631F285AF1C900EA168C /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4E136327285AF27800EA168C /* API */,
+				4E136324285AF21100EA168C /* Domain */,
+				4E90E88F282B6E3A00CF8A82 /* Coordinators */,
+				4E90E899282B6FA100CF8A82 /* View */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
+		4E136320285AF1D200EA168C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				4EACA3AA282B7A4800DD8E9B /* ToggleManager.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4E136324285AF21100EA168C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4E136325285AF21E00EA168C /* FeatureDataSource.swift */,
+				4E13632C285AF35F00EA168C /* FeatureDomainModel.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4E136327285AF27800EA168C /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4E136322285AF20600EA168C /* FeatureService.swift */,
+				4E13632A285AF29600EA168C /* FeatureAPIModel.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		4E90E853282B6DBC00CF8A82 = {
 			isa = PBXGroup;
 			children = (
@@ -93,9 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				4E90E8A0282B725000CF8A82 /* App */,
-				4E90E899282B6FA100CF8A82 /* Managers */,
+				4E136320285AF1D200EA168C /* Shared */,
 				4E90E890282B6E4200CF8A82 /* Features */,
-				4E90E88F282B6E3A00CF8A82 /* Coordinators */,
 				4E90E89F282B722300CF8A82 /* Resources */,
 			);
 			path = FeatureSample;
@@ -122,8 +168,7 @@
 		4E90E890282B6E4200CF8A82 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				4E90E863282B6DBC00CF8A82 /* ViewController.swift */,
-				4E90E894282B6EAC00CF8A82 /* ViewModel.swift */,
+				4E13631F285AF1C900EA168C /* NewFeature */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -136,13 +181,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		4E90E899282B6FA100CF8A82 /* Managers */ = {
+		4E90E899282B6FA100CF8A82 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4E90E863282B6DBC00CF8A82 /* ViewController.swift */,
+				4E90E894282B6EAC00CF8A82 /* ViewModel.swift */,
 				4E90E89A282B6FAA00CF8A82 /* FeatureManager.swift */,
-				4EACA3AA282B7A4800DD8E9B /* ToggleManager.swift */,
+				4E13632E285AF6F400EA168C /* FeatureModel.swift */,
 			);
-			path = Managers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		4E90E89C282B718300CF8A82 /* Spy */ = {
@@ -276,12 +323,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E90E895282B6EAC00CF8A82 /* ViewModel.swift in Sources */,
+				4E13632B285AF29600EA168C /* FeatureAPIModel.swift in Sources */,
 				4E90E892282B6E5900CF8A82 /* FeatureCoordinator.swift in Sources */,
+				4E136326285AF21E00EA168C /* FeatureDataSource.swift in Sources */,
 				4E90E89B282B6FAA00CF8A82 /* FeatureManager.swift in Sources */,
 				4E90E864282B6DBC00CF8A82 /* ViewController.swift in Sources */,
+				4E136323285AF20600EA168C /* FeatureService.swift in Sources */,
 				4E90E860282B6DBC00CF8A82 /* AppDelegate.swift in Sources */,
 				4E90E862282B6DBC00CF8A82 /* SceneDelegate.swift in Sources */,
 				4EACA3AB282B7A4800DD8E9B /* ToggleManager.swift in Sources */,
+				4E13632F285AF6F400EA168C /* FeatureModel.swift in Sources */,
+				4E13632D285AF35F00EA168C /* FeatureDomainModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

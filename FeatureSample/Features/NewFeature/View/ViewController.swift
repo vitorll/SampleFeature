@@ -63,7 +63,7 @@ private extension FeatureViewController {
 /// This is what a view controller should be about, it reacts to changes on the view model to update its components
 /// Ideally no logic should be here! Only simple comands telling labels, buttons, etc how they should look like
 private extension FeatureViewController {
-    func updateFlightList(_ flights: [String]) {
+    func updateFlightList(_ flights: [FeatureModel]) {
         // Update tableView with flight list
     }
     

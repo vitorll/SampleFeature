@@ -9,7 +9,7 @@ import Foundation
 
 enum FeatureViewModelState: Equatable {
     case loading
-    case loaded([String])
+    case loaded([FeatureModel])
     case failed(String)
     case redeemPoints
 }
@@ -72,8 +72,8 @@ private extension FeatureViewModel {
             switch result {
             case let .success(flights):
                 self.viewState?(.loaded(flights))
-            case .failure:
-                self.viewState?(.failed("Failed to fetch flights"))
+            case let .error(message):
+                self.viewState?(.failed(message))
             }
         }
     }

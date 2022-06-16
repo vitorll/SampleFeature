@@ -15,8 +15,10 @@ final class FeatureCoordinator {
     /// It'll be injected with the navigation controller currently displayed on the screen so it can present new ones
     private var navigationController: UINavigationController!
     
+    private var datasource: FeatureDataSourceInterface!
+    
     func start() {
-        let manager = FeatureManager()
+        let manager = FeatureManager(datasource: datasource)
         // Set all managers that this view model needs
         let toggleManager = ToggleManager()
         let viewModel = FeatureViewModel(manager: manager, toggleManager: toggleManager)
